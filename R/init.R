@@ -23,18 +23,14 @@ wdvp1 <- read_csv('/home/xut/Documents/udaviz/R/studio/wdvp/data/Copy of World D
 
 # Global Health - wdvp1
 gh <- wdvp1[2:23, ]
-colnames(gh)[colnames(gh)
-             %in% c('X1', 'X17')] <- c('disease', '2022')
-#gh$`2009` = as.numeric(gh$`2009`)
-# cambiar clase de columnas
-i <- c(4,5,6,7,8,9,10,11,12,13,14,15,16,17)
-gh[ , i] <- apply(gh[ , i], 2,            # Specify own function within apply
-                    function(x) as.numeric(as.character(x)))
+gh <- data.frame(gh, stringsAsFactors = FALSE)
+colnames(gh) <- c('enfermedad', 'data', 'metrica', 2009, 2010, 2011,
+                  2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020,
+                  2021, 2022, 'cambio10y', 'orig', 'fuente')
+gh1 <- prettyNum(gh$`2009`, big.mark = ",", scientific = F)
 
-#cc <- c(2009, 2010, 2011, 2012)
-#gh[ ,
-#    (cc) := lapply(.SD, as.numeric),
-#    .SDcols = cc]
+options(warn=-1)
+
 
 
 # Proportion of missing data for each variable at 'gh'
