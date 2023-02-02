@@ -27,7 +27,15 @@ gh <- data.frame(gh, stringsAsFactors = FALSE)
 colnames(gh) <- c('enfermedad', 'data', 'metrica', 2009, 2010, 2011,
                   2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020,
                   2021, 2022, 'cambio10y', 'orig', 'fuente')
-gh1 <- prettyNum(gh$`2009`, big.mark = ",", scientific = F)
+
+#2009 <- c(prettyNum(gh$`2009`, big.mark = ",", scientific = F))
+#2010 <- prettyNum(gh$`2010`, big.mark = ",", scientific = F)
+
+ght <- data.frame(g09 = c(prettyNum(gh$`2009`, big.mark = ",", scientific = F)),
+                  g10 = c(prettyNum(gh$`2010`, big.mark = ",", scientific = F)))
+ght$g10 <- as.numeric(ght$g10)
+#ght <- data.frame(2009, 2010)
+#gh$`2009` <- as.numeric(gh$`2009`)
 
 options(warn=-1)
 
